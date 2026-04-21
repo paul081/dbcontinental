@@ -21,6 +21,19 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Prevent scroll and blur background when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    
+    return () => {
+      document.body.classList.remove('menu-open');
+    }
+  }, [isOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'The Club', path: '/club' },
