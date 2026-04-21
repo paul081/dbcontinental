@@ -69,6 +69,7 @@ const Home = () => {
             muted
             loop
             playsInline
+            preload="auto"
             className={`hero-video-bg hero-video-slide ${index === current ? 'active' : ''}`}
           >
             <source src={video.src} type="video/mp4" />
