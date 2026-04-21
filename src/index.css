@@ -26,6 +26,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+#root, .app {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -144,9 +149,10 @@ button {
 
 .navbar.scrolled {
   padding: 1rem 0;
-  background-color: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  background-color: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .nav-container {
@@ -184,19 +190,42 @@ button {
   color: var(--text-color);
 }
 
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 998;
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 280px;
+  max-width: 80%;
   height: 100vh;
-  background-color: var(--bg-color);
+  background-color: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  border-left: 1px solid var(--border-color);
+  border-left: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.close-menu {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 .mobile-links {
@@ -207,7 +236,7 @@ button {
 }
 
 .mobile-nav-link {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-family: var(--font-heading);
   letter-spacing: 0.1em;
@@ -219,6 +248,15 @@ button {
   }
   .mobile-toggle {
     display: block;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+  .section-padding {
+    padding: 50px 0;
   }
 }
 
@@ -289,7 +327,7 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 10vw, 6rem);
+  font-size: clamp(2.2rem, 8vw, 6rem);
   margin-bottom: 2.5rem;
   line-height: 1.1;
 }
@@ -343,7 +381,7 @@ button {
 }
 
 .page-title {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
   margin-bottom: 1rem;
 }
 
@@ -402,7 +440,7 @@ button {
 
 /* Home Styles */
 .section-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   margin-bottom: 2rem;
 }
 
@@ -482,7 +520,7 @@ button {
 }
 
 .preview-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
@@ -825,7 +863,7 @@ button {
 /* Testimonials Styles */
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 4rem;
 }

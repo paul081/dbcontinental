@@ -49,20 +49,32 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button className="mobile-toggle" onClick={() => setIsOpen(true)}>
+          <Menu size={28} />
         </button>
 
         {/* Mobile Nav */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.5 }}
-              className="mobile-menu"
-            >
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="mobile-overlay"
+                onClick={() => setIsOpen(false)}
+              />
+              <motion.div 
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.5 }}
+                className="mobile-menu"
+              >
+              <button className="close-menu" onClick={() => setIsOpen(false)}>
+                <X size={32} />
+              </button>
               <div className="mobile-links">
                 {navLinks.map((link) => (
                   <Link 
@@ -75,6 +87,7 @@ const Navbar = () => {
                 ))}
               </div>
             </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

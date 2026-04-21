@@ -15,25 +15,9 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="footer-section">
-            <h4 className="footer-title">Explore</h4>
-            <ul className="footer-links">
-              <li><Link to="/club" className="footer-link">The Club</Link></li>
-              <li><Link to="/apartments" className="footer-link">The Residences</Link></li>
-              <li><Link to="/booking" className="footer-link">Reservations</Link></li>
-              <li><Link to="/" className="footer-link">Private Events</Link></li>
-            </ul>
-          </div>
 
-          <div className="footer-section">
-            <h4 className="footer-title">Legal</h4>
-            <ul className="footer-links">
-              <li><Link to="/" className="footer-link">Privacy Policy</Link></li>
-              <li><Link to="/" className="footer-link">Terms of Service</Link></li>
-              <li><Link to="/" className="footer-link">Member Guidelines</Link></li>
-              <li><Link to="/" className="footer-link">Cookie Policy</Link></li>
-            </ul>
-          </div>
+
+
 
           <div className="footer-section">
             <h4 className="footer-title">Contact</h4>
